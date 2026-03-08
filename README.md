@@ -35,6 +35,11 @@ Simply include these variables before you import `recaptcha.scss` and it should 
 
 Note: the default values are listed in `recaptcha.scss`, in the "Settings" section.
 
+
+## Operational trackers
+
+- `STATEMENT_FORMAT_TRACKER.md` keeps a recurring checklist to monitor statement/report layout changes for HDFC, ICICI, SBI, Motilal Oswal (Scriptbox), and Zerodha.
+
 ## Caution
 
 **Use wisely.** I don't have a `min-width` set on the captcha, and if you're not careful the captcha could get too small to read! Make sure you test thoroughly on various devices at various widths to make sure that won't be an issue.
