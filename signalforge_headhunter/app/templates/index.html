@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>SignalForge Headhunter</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <h1>SignalForge Headhunter (Local-First)</h1>
+  <p>Privacy-first research, enrichment, scoring, and drafting assistant. No auto-messaging.</p>
+  <div class="grid">
+    {% for screen in screens %}
+    <section><h3>{{screen}}</h3><p>Ready for local workflows and manual input/import.</p></section>
+    {% endfor %}
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
