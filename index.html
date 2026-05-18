@@ -32,7 +32,7 @@
   <main class="container">
     <section class="card">
       <h1>Personal Car Purchase Advisor</h1>
-      <p class="subtitle">Tell me about the car and your usage — I’ll generate a full decision report.</p>
+      <p class="subtitle">I play the role of your buying advisor. Tell me about the car and how you will use it, and I’ll generate a detailed decision report.</p>
 
       <form id="advisorForm">
         <div class="grid">
@@ -52,7 +52,7 @@
           <div><label for="riskTolerance">Maintenance risk tolerance</label><select id="riskTolerance"><option value="low">Low (predictable costs)</option><option value="medium">Medium</option><option value="high">High (okay with surprises)</option></select></div>
           <div class="full"><label for="notes">Anything else (accidents, trims, deal details, financing, etc.)</label><textarea id="notes" placeholder="Add context for better advice..."></textarea></div>
         </div>
-        <div class="actions"><button type="submit" class="primary" id="analyzeBtn">Generate advisor report</button><button type="button" class="secondary" id="demoBtn">Fill with sample data</button></div>
+        <div class="actions"><button type="submit" class="primary" id="analyzeBtn">Generate advisor report</button><button type="button" class="secondary" id="demoBtn">Fill with sample data</button><button type="button" class="secondary" id="clearBtn">Clear form</button></div>
       </form>
       <div id="formError" class="error" aria-live="polite"></div>
     </section>
@@ -141,6 +141,15 @@
       $('make').value='BMW'; $('model').value='X3 xDrive30i'; $('yearMade').value='2021'; $('yearRegistered').value='2022'; $('price').value='32500'; $('mileage').value='41000';
       $('warranty').value='partial'; $('serviceHistory').value='good'; $('luxury').value='high'; $('tech').value='fast'; $('useType').value='mixed'; $('annualMiles').value='14000'; $('ownershipYears').value='4'; $('riskTolerance').value='medium';
       $('notes').value='Considering CPO option; mostly suburban usage with occasional road trips.'; analyze();
+    });
+
+    $('clearBtn').addEventListener('click', () => {
+      $('advisorForm').reset();
+      $('formError').textContent='';
+      $('totalScore').textContent='--';
+      $('scoreLabel').textContent='';
+      $('metrics').innerHTML='';
+      $('reportText').textContent='No report yet. Enter details and click “Generate advisor report”.';
     });
   </script>
 </body>
