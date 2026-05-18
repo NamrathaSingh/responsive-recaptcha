@@ -5,139 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Personal Car Purchase Advisor</title>
   <style>
-    :root {
-      --bg: #0f172a;
-      --panel: #111827;
-      --panel-2: #1f2937;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --accent: #22d3ee;
-      --good: #34d399;
-      --warn: #fbbf24;
-      --bad: #f87171;
-      --border: #374151;
-    }
-
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: linear-gradient(160deg, var(--bg), #020617);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    .container {
-      width: min(1100px, 92vw);
-      margin: 2rem auto;
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 1rem;
-    }
-
-    .card {
-      background: rgba(17, 24, 39, 0.9);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
-    }
-
-    h1, h2, h3 { margin-top: 0; }
-    .subtitle { color: var(--muted); margin-top: -0.4rem; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.8rem;
-    }
-
-    label {
-      display: block;
-      font-size: 0.88rem;
-      margin-bottom: 0.3rem;
-      color: #d1d5db;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 0.65rem;
-      border-radius: 8px;
-      border: 1px solid #4b5563;
-      background: var(--panel-2);
-      color: var(--text);
-    }
-
-    textarea { min-height: 88px; resize: vertical; }
-
-    .full { grid-column: 1 / -1; }
-
-    .actions {
-      display: flex;
-      gap: 0.6rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-
-    button {
-      border: 0;
-      border-radius: 9px;
-      padding: 0.72rem 1rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .primary { background: var(--accent); color: #00141b; }
-    .secondary { background: #334155; color: var(--text); }
-
-    .score {
-      display: flex;
-      align-items: baseline;
-      gap: 0.6rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .score .number {
-      font-size: 2.1rem;
-      font-weight: 800;
-    }
-
-    .metric {
-      margin: 0.7rem 0;
-    }
-
-    .metric-head {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.9rem;
-      margin-bottom: 0.28rem;
-    }
-
-    .bar {
-      height: 10px;
-      background: #111827;
-      border: 1px solid #374151;
-      border-radius: 99px;
-      overflow: hidden;
-    }
-
-    .bar > span {
-      display: block;
-      height: 100%;
-      background: linear-gradient(90deg, #22d3ee, #6366f1);
-    }
-
-    .report {
-      line-height: 1.5;
-      color: #dbeafe;
-      white-space: pre-line;
-      margin-top: 0.6rem;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 960px) {
-      .container { grid-template-columns: 1fr; }
-    }
+    :root { --bg:#0f172a; --panel:#111827; --panel-2:#1f2937; --text:#e5e7eb; --muted:#9ca3af; --accent:#22d3ee; --border:#374151; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:linear-gradient(160deg,var(--bg),#020617); color:var(--text); min-height:100vh; }
+    .container { width:min(1100px,92vw); margin:2rem auto; display:grid; grid-template-columns:1.1fr 1fr; gap:1rem; }
+    .card { background:rgba(17,24,39,.9); border:1px solid var(--border); border-radius:14px; padding:1rem; box-shadow:0 10px 30px rgba(0,0,0,.28); }
+    h1,h2 { margin-top:0; } .subtitle { color:var(--muted); margin-top:-.4rem; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; }
+    label { display:block; font-size:.88rem; margin-bottom:.3rem; color:#d1d5db; }
+    input,select,textarea { width:100%; padding:.65rem; border-radius:8px; border:1px solid #4b5563; background:var(--panel-2); color:var(--text); }
+    textarea { min-height:88px; resize:vertical; } .full { grid-column:1/-1; }
+    .actions { display:flex; gap:.6rem; margin-top:1rem; flex-wrap:wrap; }
+    button { border:0; border-radius:9px; padding:.72rem 1rem; font-weight:600; cursor:pointer; }
+    .primary { background:var(--accent); color:#00141b; } .secondary { background:#334155; color:var(--text); }
+    .score { display:flex; align-items:baseline; gap:.6rem; margin-bottom:.8rem; }
+    .score .number { font-size:2.1rem; font-weight:800; }
+    .metric { margin:.7rem 0; } .metric-head { display:flex; justify-content:space-between; font-size:.9rem; margin-bottom:.28rem; }
+    .bar { height:10px; background:#111827; border:1px solid #374151; border-radius:99px; overflow:hidden; }
+    .bar>span { display:block; height:100%; background:linear-gradient(90deg,#22d3ee,#6366f1); }
+    .report { line-height:1.5; color:#dbeafe; white-space:pre-line; margin-top:.6rem; font-size:.95rem; }
+    .error { color:#fca5a5; margin-top:.7rem; min-height:1.1rem; }
+    @media (max-width:960px) { .container { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -146,173 +34,78 @@
       <h1>Personal Car Purchase Advisor</h1>
       <p class="subtitle">Tell me about the car and your usage — I’ll generate a full decision report.</p>
 
-      <div class="grid">
-        <div>
-          <label for="make">Make / Brand</label>
-          <input id="make" placeholder="Toyota, BMW, Tesla..." />
+      <form id="advisorForm">
+        <div class="grid">
+          <div><label for="make">Make / Brand</label><input id="make" required placeholder="Toyota, BMW, Tesla..." /></div>
+          <div><label for="model">Model & Variant</label><input id="model" required placeholder="Camry Hybrid, X5 xDrive..." /></div>
+          <div><label for="yearMade">Year made</label><input id="yearMade" type="number" min="1980" max="2030" required /></div>
+          <div><label for="yearRegistered">Year first registered</label><input id="yearRegistered" type="number" min="1980" max="2030" required /></div>
+          <div><label for="price">Asking price (USD)</label><input id="price" type="number" min="1000" step="100" required /></div>
+          <div><label for="mileage">Current mileage (miles)</label><input id="mileage" type="number" min="0" step="100" required /></div>
+          <div><label for="warranty">Warranty status</label><select id="warranty"><option value="full">Factory warranty active</option><option value="partial">Extended / partial warranty</option><option value="none">No warranty</option></select></div>
+          <div><label for="serviceHistory">Service history quality</label><select id="serviceHistory"><option value="excellent">Excellent (full records)</option><option value="good">Good (most records)</option><option value="mixed">Mixed / incomplete</option><option value="poor">Poor / missing</option></select></div>
+          <div><label for="luxury">Luxury feel target</label><select id="luxury"><option value="high">High / premium cabin</option><option value="medium">Balanced comfort</option><option value="low">Basic utility</option></select></div>
+          <div><label for="tech">Tech expectations</label><select id="tech"><option value="fast">Must feel modern for years</option><option value="normal">Good enough everyday tech</option><option value="simple">Minimal tech is fine</option></select></div>
+          <div><label for="useType">Primary use pattern</label><select id="useType"><option value="city">City commute</option><option value="highway">Highway miles</option><option value="mixed">Mixed family usage</option><option value="weekend">Weekend / occasional</option></select></div>
+          <div><label for="annualMiles">Expected annual miles</label><input id="annualMiles" type="number" min="1000" step="500" value="12000" required /></div>
+          <div><label for="ownershipYears">Planned ownership (years)</label><input id="ownershipYears" type="number" min="1" max="12" value="5" required /></div>
+          <div><label for="riskTolerance">Maintenance risk tolerance</label><select id="riskTolerance"><option value="low">Low (predictable costs)</option><option value="medium">Medium</option><option value="high">High (okay with surprises)</option></select></div>
+          <div class="full"><label for="notes">Anything else (accidents, trims, deal details, financing, etc.)</label><textarea id="notes" placeholder="Add context for better advice..."></textarea></div>
         </div>
-        <div>
-          <label for="model">Model & Variant</label>
-          <input id="model" placeholder="Camry Hybrid, X5 xDrive..." />
-        </div>
-        <div>
-          <label for="yearMade">Year made</label>
-          <input id="yearMade" type="number" min="1980" max="2030" />
-        </div>
-        <div>
-          <label for="yearRegistered">Year first registered</label>
-          <input id="yearRegistered" type="number" min="1980" max="2030" />
-        </div>
-        <div>
-          <label for="price">Asking price (USD)</label>
-          <input id="price" type="number" min="1000" step="100" />
-        </div>
-        <div>
-          <label for="mileage">Current mileage (miles)</label>
-          <input id="mileage" type="number" min="0" step="100" />
-        </div>
-
-        <div>
-          <label for="warranty">Warranty status</label>
-          <select id="warranty">
-            <option value="full">Factory warranty active</option>
-            <option value="partial">Extended / partial warranty</option>
-            <option value="none">No warranty</option>
-          </select>
-        </div>
-        <div>
-          <label for="serviceHistory">Service history quality</label>
-          <select id="serviceHistory">
-            <option value="excellent">Excellent (full records)</option>
-            <option value="good">Good (most records)</option>
-            <option value="mixed">Mixed / incomplete</option>
-            <option value="poor">Poor / missing</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="luxury">Luxury feel target</label>
-          <select id="luxury">
-            <option value="high">High / premium cabin</option>
-            <option value="medium">Balanced comfort</option>
-            <option value="low">Basic utility</option>
-          </select>
-        </div>
-        <div>
-          <label for="tech">Tech expectations</label>
-          <select id="tech">
-            <option value="fast">Must feel modern for years</option>
-            <option value="normal">Good enough everyday tech</option>
-            <option value="simple">Minimal tech is fine</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="useType">Primary use pattern</label>
-          <select id="useType">
-            <option value="city">City commute</option>
-            <option value="highway">Highway miles</option>
-            <option value="mixed">Mixed family usage</option>
-            <option value="weekend">Weekend / occasional</option>
-          </select>
-        </div>
-        <div>
-          <label for="annualMiles">Expected annual miles</label>
-          <input id="annualMiles" type="number" min="1000" step="500" value="12000" />
-        </div>
-
-        <div>
-          <label for="ownershipYears">Planned ownership (years)</label>
-          <input id="ownershipYears" type="number" min="1" max="12" value="5" />
-        </div>
-        <div>
-          <label for="riskTolerance">Maintenance risk tolerance</label>
-          <select id="riskTolerance">
-            <option value="low">Low (predictable costs)</option>
-            <option value="medium">Medium</option>
-            <option value="high">High (okay with surprises)</option>
-          </select>
-        </div>
-
-        <div class="full">
-          <label for="notes">Anything else (accidents, trims, deal details, financing, etc.)</label>
-          <textarea id="notes" placeholder="Add context for better advice..."></textarea>
-        </div>
-      </div>
-
-      <div class="actions">
-        <button class="primary" id="analyzeBtn">Generate advisor report</button>
-        <button class="secondary" id="demoBtn">Fill with sample data</button>
-      </div>
+        <div class="actions"><button type="submit" class="primary" id="analyzeBtn">Generate advisor report</button><button type="button" class="secondary" id="demoBtn">Fill with sample data</button></div>
+      </form>
+      <div id="formError" class="error" aria-live="polite"></div>
     </section>
 
     <section class="card">
       <h2>Advisor Analysis</h2>
-      <div class="score">
-        <span>Recommendation score</span>
-        <span class="number" id="totalScore">--</span>
-        <span id="scoreLabel"></span>
-      </div>
-
+      <div class="score"><span>Recommendation score</span><span class="number" id="totalScore">--</span><span id="scoreLabel"></span></div>
       <div id="metrics"></div>
       <div class="report" id="reportText">No report yet. Enter details and click “Generate advisor report”.</div>
     </section>
   </main>
-
   <script>
     const $ = (id) => document.getElementById(id);
-
-    function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
-
-    function metric(name, value) {
-      return `<div class="metric"><div class="metric-head"><span>${name}</span><strong>${value}/100</strong></div><div class="bar"><span style="width:${value}%"></span></div></div>`;
-    }
-
-    function getVal(id, num = false) {
-      const v = $(id).value;
-      return num ? Number(v || 0) : v;
-    }
+    const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+    const metric = (name, value) => `<div class="metric"><div class="metric-head"><span>${name}</span><strong>${value}/100</strong></div><div class="bar"><span style="width:${value}%"></span></div></div>`;
+    const getVal = (id, num=false) => num ? Number($(id).value || 0) : $(id).value;
 
     function analyze() {
       const currentYear = new Date().getFullYear();
-      const make = getVal('make');
-      const model = getVal('model');
-      const yearMade = getVal('yearMade', true);
-      const yearRegistered = getVal('yearRegistered', true);
-      const price = getVal('price', true);
-      const mileage = getVal('mileage', true);
-      const warranty = getVal('warranty');
-      const serviceHistory = getVal('serviceHistory');
-      const luxury = getVal('luxury');
-      const tech = getVal('tech');
-      const useType = getVal('useType');
-      const annualMiles = getVal('annualMiles', true);
-      const ownershipYears = getVal('ownershipYears', true);
-      const riskTolerance = getVal('riskTolerance');
-      const notes = getVal('notes');
+      const make = getVal('make'), model = getVal('model');
+      const yearMade = getVal('yearMade', true), yearRegistered = getVal('yearRegistered', true);
+      const price = getVal('price', true), mileage = getVal('mileage', true);
+      const warranty = getVal('warranty'), serviceHistory = getVal('serviceHistory');
+      const luxury = getVal('luxury'), tech = getVal('tech'), useType = getVal('useType');
+      const annualMiles = getVal('annualMiles', true), ownershipYears = getVal('ownershipYears', true);
+      const riskTolerance = getVal('riskTolerance'), notes = getVal('notes');
 
-      const age = yearMade ? Math.max(0, currentYear - yearMade) : 0;
-      const regGap = yearMade && yearRegistered ? Math.max(0, yearRegistered - yearMade) : 0;
+      if (yearRegistered < yearMade) { $('formError').textContent = 'Registration year cannot be earlier than year made.'; return; }
+      $('formError').textContent = '';
 
-      let depreciation = 65 - age * 4 - (mileage / 10000) * 2 - regGap * 3;
+      const age = Math.max(0, currentYear - yearMade);
+      const regGap = Math.max(0, yearRegistered - yearMade);
+      const milesPerYear = age > 0 ? mileage / age : mileage;
+
+      let depreciation = 68 - age * 4 - (mileage / 10000) * 2 - regGap * 3;
       if (warranty === 'full') depreciation += 8;
       if (serviceHistory === 'excellent') depreciation += 8;
       if (serviceHistory === 'poor') depreciation -= 10;
       depreciation = clamp(Math.round(depreciation), 15, 95);
 
-      let resale = 60 - age * 3 - (mileage / 12000) * 3;
+      let resale = 62 - age * 3 - (mileage / 12000) * 3;
       if (/toyota|honda|lexus|subaru|porsche|tesla/i.test(make)) resale += 10;
       if (/bmw|audi|mercedes|jaguar|land rover|alfa/i.test(make)) resale -= 4;
       if (serviceHistory === 'excellent') resale += 10;
       if (warranty === 'none') resale -= 6;
       resale = clamp(Math.round(resale), 10, 95);
 
-      let luxuryFit = luxury === 'high' ? 55 : luxury === 'medium' ? 70 : 80;
+      let luxuryFit = (luxury === 'high' ? 55 : luxury === 'medium' ? 70 : 80);
       if (/bmw|mercedes|audi|lexus|genesis|volvo|porsche/i.test(make)) luxuryFit += 20;
       if (/toyota|honda|mazda|hyundai|kia|ford|chevrolet/i.test(make)) luxuryFit += 5;
       luxuryFit = clamp(Math.round(luxuryFit), 20, 98);
 
-      let techLongevity = 70 - age * 5;
+      let techLongevity = 72 - age * 5;
       if (tech === 'fast') techLongevity -= 8;
       if (/tesla|bmw|mercedes|audi|lucid|rivian/i.test(make)) techLongevity += 8;
       if (useType === 'city') techLongevity += 3;
@@ -323,90 +116,31 @@
       if (/toyota|honda|mazda|subaru|hyundai/i.test(make)) upkeep += 10;
       if (warranty === 'full') upkeep += 12;
       if (serviceHistory === 'poor') upkeep -= 15;
-      upkeep = clamp(Math.round(upkeep), 8, 96);
-
       if (riskTolerance === 'high') upkeep += 5;
       if (riskTolerance === 'low') upkeep -= 5;
       upkeep = clamp(Math.round(upkeep), 5, 98);
 
-      const overall = Math.round(
-        depreciation * 0.22 + resale * 0.22 + luxuryFit * 0.16 + techLongevity * 0.20 + upkeep * 0.20
-      );
+      const annualDepValue = Math.max(1500, price * (0.08 + ((100 - resale) / 1000)));
+      const totalOwnershipCost = annualDepValue * ownershipYears + (1200 + (100 - upkeep) * 22 + annualMiles * 0.03) * ownershipYears;
+      const valueScore = clamp(Math.round(95 - (totalOwnershipCost / Math.max(price, 1)) * 8), 5, 95);
 
+      const overall = Math.round(depreciation*0.2 + resale*0.2 + luxuryFit*0.14 + techLongevity*0.18 + upkeep*0.18 + valueScore*0.1);
       const scoreLabel = overall >= 80 ? 'Strong Buy' : overall >= 65 ? 'Reasonable Buy' : overall >= 50 ? 'Caution / Negotiate Hard' : 'Pass Unless Deep Discount';
 
-      $('totalScore').textContent = overall;
-      $('scoreLabel').textContent = scoreLabel;
-      $('metrics').innerHTML = [
-        metric('Depreciation outlook', depreciation),
-        metric('Resale value confidence', resale),
-        metric('Luxury feel match', luxuryFit),
-        metric('Technology catch-up speed', techLongevity),
-        metric('Upkeep cost confidence', upkeep)
-      ].join('');
+      $('totalScore').textContent = overall; $('scoreLabel').textContent = scoreLabel;
+      $('metrics').innerHTML = [metric('Depreciation outlook',depreciation), metric('Resale value confidence',resale), metric('Luxury feel match',luxuryFit), metric('Technology catch-up speed',techLongevity), metric('Upkeep cost confidence',upkeep), metric('Price-to-value sanity',valueScore)].join('');
 
       const estYearlyUpkeep = Math.round((1200 + (100 - upkeep) * 22 + annualMiles * 0.03) / 10) * 10;
-      const fiveYearValueDropPct = clamp(Math.round(38 + age * 4 + (100 - resale) * 0.25), 28, 78);
+      const valueDropPct = clamp(Math.round(35 + age * 4 + (100 - resale) * 0.25), 28, 78);
 
-      $('reportText').textContent =
-`Advisor summary for ${make || 'Unknown make'} ${model || ''}
-
-1) Purchase fit
-Your estimated recommendation score is ${overall}/100 (${scoreLabel}). This combines depreciation, resale strength, luxury expectation fit, technology relevance over your ownership window, and upkeep reliability.
-
-2) Vehicle age & registration impact
-- Car age: ${age} years (made ${yearMade || 'N/A'})
-- Registration lag: ${regGap} year(s) between production and first registration
-Older vehicles can still be smart buys when price and maintenance history align, but age directly increases wear-item and electronics risk.
-
-3) Depreciation & resale
-- Depreciation outlook score: ${depreciation}/100
-- Resale value confidence: ${resale}/100
-- Estimated value drop over next ${ownershipYears} years: ~${fiveYearValueDropPct}% (market-sensitive estimate)
-
-4) Technology and luxury considerations
-- Luxury fit score: ${luxuryFit}/100 based on your desired cabin/brand feel
-- Tech longevity score: ${techLongevity}/100 for your expected ownership and expectations (${tech})
-Cars with fast software cycles can feel outdated quickly unless the platform receives frequent updates.
-
-5) Cost of ownership & warranty
-- Upkeep confidence score: ${upkeep}/100
-- Warranty status: ${warranty}
-- Estimated annual upkeep/maintenance: ~$${estYearlyUpkeep}/year (excluding insurance/loan/fuel)
-
-6) Usage-fit review
-You expect ${annualMiles.toLocaleString()} miles/year with '${useType}' usage. High annual usage amplifies maintenance and depreciation differences, so service history quality (${serviceHistory}) matters heavily.
-
-7) Advisor actions before purchase
-- Run a pre-purchase inspection focused on engine/transmission health, suspension wear, and fault-code scan.
-- Verify warranty transferability and exact expiration terms in writing.
-- Request full service invoices and check for major interval services already done.
-- Negotiate based on tire/brake life, upcoming maintenance, and comparable listings.
-
-8) Notes considered
-${notes ? notes : 'No additional notes provided.'}
-
-Bottom line: ${scoreLabel}. If this is near your budget ceiling, prioritize condition and warranty evidence over trim extras.`;
+      $('reportText').textContent = `Advisor summary for ${make} ${model}\n\n1) Purchase fit\nScore: ${overall}/100 (${scoreLabel}).\n\n2) Vehicle age, registration & usage stress\n- Car age: ${age} years (made ${yearMade})\n- First registration: ${yearRegistered} (lag ${regGap} year(s))\n- Historical usage intensity: ~${Math.round(milesPerYear).toLocaleString()} miles/year\n\n3) Depreciation, resale & price sanity\n- Depreciation score: ${depreciation}/100\n- Resale confidence: ${resale}/100\n- Price-to-value sanity: ${valueScore}/100\n- Estimated value drop over next ${ownershipYears} years: ~${valueDropPct}%\n\n4) Technology & luxury\n- Luxury fit: ${luxuryFit}/100\n- Tech longevity/catch-up: ${techLongevity}/100 (${tech})\n\n5) Warranty & ownership costs\n- Warranty status: ${warranty}\n- Upkeep confidence: ${upkeep}/100\n- Estimated maintenance/upkeep: ~$${estYearlyUpkeep.toLocaleString()}/year (excluding fuel, insurance, financing)\n\n6) How this aligns with your real usage\nPrimary usage: ${useType}; expected annual mileage: ${annualMiles.toLocaleString()} miles; risk tolerance: ${riskTolerance}.\n\n7) Advisor checklist before purchase\n- Independent pre-purchase inspection with scan-tool report\n- Validate warranty transferability and remaining term\n- Confirm service records and major interval completion\n- Negotiate using tire, brake, suspension, and upcoming service needs\n\n8) Notes considered\n${notes || 'No additional notes provided.'}\n\nBottom line: ${scoreLabel}.`;
     }
 
-    $('analyzeBtn').addEventListener('click', analyze);
+    $('advisorForm').addEventListener('submit', (e) => { e.preventDefault(); if ($('advisorForm').reportValidity()) analyze(); });
     $('demoBtn').addEventListener('click', () => {
-      $('make').value = 'BMW';
-      $('model').value = 'X3 xDrive30i';
-      $('yearMade').value = '2021';
-      $('yearRegistered').value = '2022';
-      $('price').value = '32500';
-      $('mileage').value = '41000';
-      $('warranty').value = 'partial';
-      $('serviceHistory').value = 'good';
-      $('luxury').value = 'high';
-      $('tech').value = 'fast';
-      $('useType').value = 'mixed';
-      $('annualMiles').value = '14000';
-      $('ownershipYears').value = '4';
-      $('riskTolerance').value = 'medium';
-      $('notes').value = 'Considering CPO option; mostly suburban usage with occasional road trips.';
-      analyze();
+      $('make').value='BMW'; $('model').value='X3 xDrive30i'; $('yearMade').value='2021'; $('yearRegistered').value='2022'; $('price').value='32500'; $('mileage').value='41000';
+      $('warranty').value='partial'; $('serviceHistory').value='good'; $('luxury').value='high'; $('tech').value='fast'; $('useType').value='mixed'; $('annualMiles').value='14000'; $('ownershipYears').value='4'; $('riskTolerance').value='medium';
+      $('notes').value='Considering CPO option; mostly suburban usage with occasional road trips.'; analyze();
     });
   </script>
 </body>
